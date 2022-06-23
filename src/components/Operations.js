@@ -1,20 +1,20 @@
 import React from "react";
 import { useNotification } from "../shared/context/notification-context";
 
+  
+
+
 const Operations = (props) => {
   const dispatch = useNotification();
 
-  // sepete eklenen urunleri sifirlar
-  // odeme yontemini sifirlar
+  // sepete eklenen rezervasyonları sifirlar
   // toplam ucreti sifirlar
-  // email ile kullanıcıya gönderir
   
-  const handlePayment = () => {
+  const handleSendingEmail = () => {
       props.setPayments([
         ...props.payments,
         { fiyat: props.totalPrice },
       ]);
-      props.setItemsAddedToCart([]);
       dispatch({
         type: "SUCCESS",
         title: "Gönderme başarılı",
@@ -26,11 +26,12 @@ const Operations = (props) => {
   // mevcut islemi iptal eder, sepeti bosaltir
   const handleCancel = () => {
     props.setItemsAddedToCart([]);
-    props.setPrice(0);
+    props.setPaymentMethod(null);
+    props.setTotalPrice(0);
   };
 
   return (
-    <form onSubmit={handlePayment}  className="card flex items-center justify-between w-full p-4 lg:p-6">
+    <form onSubmit={handleSendingEmail}  className="card flex items-center justify-between w-full p-4 lg:p-6">
       <div>
         <button
           type="button"
@@ -50,7 +51,7 @@ const Operations = (props) => {
         </div>
         <button
           type="button"
-          onClick={handlePayment}
+          onClick={handleSendingEmail}
           disabled={props.itemsAddedToCart.length === 0}
           className="px-3 py-1.5 rounded-lg drop-shadow-lg font-bold text-sm lg:text-lg disabled:cursor-not-allowed text-gray-50 bg-green-500 hover:bg-green-600 active:bg-green-300 transition-colors duration-200 ease-in-out"
         >
