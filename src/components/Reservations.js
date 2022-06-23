@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReservationsList from "./ReservationsList";
 import { SearchIcon } from "@heroicons/react/solid";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 const Reservations = (props) => {
   const [filteredData, setFilteredData] = useState(props.data);
   const [searchKey, setSearchKey] = useState("");
@@ -29,21 +29,30 @@ const Reservations = (props) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_et80znc', 'template_rpnidnj', e.target, '-oq2luh_CA12sKJkd')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_et80znc",
+        "template_rpnidnj",
+        e.target,
+        "-oq2luh_CA12sKJkd"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log("error.text");
-      });
-    e.target.reset()
+        }
+      );
+    e.target.reset();
   };
 
   return (
     <div className="row-span-2 lg:row-span-3 flex h-full max-h-full overflow-hidden">
-      <div className="card relative h-full max-h-full overflow-hidden w-full mr-14">
+      <div className="card relative h-full max-h-full overflow-hidden w-1/2 mr-14">
         <div className="flex items-center justify-between shrink-0 h-12 lg:h-14 w-full px-4 lg:px-6 rounded-t-lg">
           <h2 className="text-sm lg:text-lg font-medium text-gray-800">
-            SAHALAR
+            <strong>SAHALAR</strong>
           </h2>
 
           <div className="group mt-1 relative flex items-right">
@@ -71,8 +80,14 @@ const Reservations = (props) => {
           />
         </div>
       </div>
+
       <form onSubmit={sendEmail}>
-        <div className="card relative h-full max-h-full overflow w-62 lg:p-8 p-1 ">
+        <div className="card relative h-full max-h-full overflow w-75 justify-center lg:p-8 p-1 ">
+          <div className=" pb-4 px-0">
+            <h2>
+              <strong className="text-xs">NORMAL KULLANICI</strong>
+            </h2>
+          </div>
           <div className="group mt-1 relative flex items-center">
             <input
               type="text"
@@ -124,12 +139,11 @@ const Reservations = (props) => {
               onChange={(e) => handleClick("email", e.target.value)}
             />
           </div>
-          <input className="flex mt-1 py-1 px-3 rounded-lg text-sm font-semibold lg:text-lg text-gray-50 bg-green-600 hover:bg-green-600 active:bg-green-500"type="submit"/>
-          
+          <input
+            className="flex mt-1 py-1 px-3 rounded-lg text-sm font-semibold lg:text-lg text-gray-50 bg-green-600 hover:bg-green-600 active:bg-green-500"
+            type="submit"
+          />
         </div>
-        
-        
-        
       </form>
     </div>
   );
