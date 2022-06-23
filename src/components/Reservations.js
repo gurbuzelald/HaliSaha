@@ -5,7 +5,8 @@ import emailjs from '@emailjs/browser';
 const Reservations = (props) => {
   const [filteredData, setFilteredData] = useState(props.data);
   const [searchKey, setSearchKey] = useState("");
-  const [emptyTime, setEmptyTime] = useState(props.timeData);
+  const [emptyTime, setEmptyTime] = useState(props.data);
+
   // arama alanina girilen keyword'e gore rezervasyonları filtreler
   const handleChange = (value) => {
     setSearchKey(value);
