@@ -185,7 +185,6 @@ const SuperUser = (props) => {
                 type="radio"
                 name="id"
                 id="id"
-                placeholder="TC"
                 className="input"
                 autoComplete="off"
                 required
