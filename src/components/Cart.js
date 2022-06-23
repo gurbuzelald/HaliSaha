@@ -12,14 +12,10 @@ const Cart = (props) => {
         setItemsAddedToCart={props.setItemsAddedToCart}
         totalPrice={props.totalPrice}
         setTotalPrice={props.setTotalPrice}
-        quantity={props.quantity}
-        setQuantity={props.setQuantity}
         paymentMethod={props.paymentMethod}
         setPaymentMethod={props.setPaymentMethod}
       />
       <CartTable itemsAddedToCart={props.itemsAddedToCart} />
-      
-      
     </div>
     
   );
