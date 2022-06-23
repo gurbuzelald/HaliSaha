@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
 const initialData = {
-  id: "",
+  id: v4(),
   isim: "",
   soyisim: "",
   sahaismi: "",
@@ -27,7 +27,9 @@ const SuperUser = (props) => {
     setFormData(initialData);
   };
   return (
-    <form
+    <div>
+      <h2><strong>SÜPER KULLANICI</strong></h2>
+      <form
       onSubmit={handleSubmit}
       className="grid grid-cols-4 lg:grid-cols-5 w-full overflow-hidden"
     >
@@ -208,6 +210,8 @@ const SuperUser = (props) => {
         </td>
       </td>
     </form>
+    </div>
+    
   );
 };
 
