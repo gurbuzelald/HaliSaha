@@ -101,7 +101,7 @@ const SuperUser = (props) => {
         </div>
       </td>
 
-      <td className="px-3 py-4 text-center text-sm text-gray-500">
+      <td className="px-3 py-4 text-center text-gray-500">
         <div>
           <div className="mt-4">
             <select
