@@ -6,54 +6,33 @@ const initialData = {
   soyisim: "",
   sahaismi: "",
   sahakonumu: "",
-  fiyat: "5",
-  sahaalanlari: "sdc",
-  bosSaatler: "sd",
+  fiyat: "",
+  sahaalanlari: "",
+  bosSaatler: "",
 };
 
-
 const SuperUser = (props) => {
-  // const [params, setParams] = useSearchParams();
 
   const [formData, setFormData] = useState(initialData);
 
-  // yeni rezervasyon ekleme formunda kullanici input degisikligi yaptikca form datasini gunceller
+// yeni rezervasyon ekleme formunda kullanici input degisikligi yaptikca datasını günceller
   const handleChange = (input, value) => {
     setFormData({ ...formData, [input]: value });
   };
 
-  // yeni rezervasyon ekleme formunda kullanicinin girmis oldugu bilgilerle tum urunlerin tutuldugu listeye yeni kayit ekler
+  // yeni rezervasyon ekleme formunda kullanıcının girmis olduğu bilgilerle tum rezervasyonların tutuldugu listeye yeni kayıt ekler
   const handleSubmit = (e) => {
     e.preventDefault();
     props.setData([...props.data, formData]);
     setFormData(initialData);
   };
-
   return (
     <form
       onSubmit={handleSubmit}
       className="grid grid-cols-4 lg:grid-cols-5 w-full overflow-hidden"
     >
-      <td className="px-3 py-4 text-center text-sm text-gray-500">
+      <td className="px-0 py-4   text-center text-xs text-gray-500">
         <div>
-          <div>
-            <div className="mt-1">
-              <input
-                type="radio"
-                name="id"
-                id="id"
-                placeholder="TC"
-                className="input"
-                autoComplete="off"
-                required
-                value={formData.id}
-                onChange={(e) => {
-                  handleChange("fiyat", e.target.value);
-                  handleChange("id", v4());
-                }}
-              />
-            </div>
-          </div>
           <div>
             <div className="mt-1">
               <input
@@ -198,17 +177,37 @@ const SuperUser = (props) => {
             />
           </div>
         </div>
+
         <td className="px-3 py-4 text-center text-sm text-gray-500">
+          <div className="w-5 text-xs">
+            <div className="mt-1">
+              <input
+                type="radio"
+                name="id"
+                id="id"
+                placeholder="TC"
+                className="input"
+                autoComplete="off"
+                required
+                value={formData.id}
+                onChange={(e) => {
+                  handleChange("fiyat", e.target.value);
+                  handleChange("id", v4());
+                }}
+              />
+            </div>
+          </div>
+        </td>
+        <td className="text-center text-sm text-gray-500">
           <button
             type="submit"
             //onClick={handleSubmit}
-            className="py-2 px-2  rounded-lg text-sm font-semibold  text-gray-50 bg-green-600 hover:bg-green-500 active:bg-green-300"
+            className="px-4 py-1 rounded-lg text-sm font-semibold  text-gray-50 bg-green-600 hover:bg-green-500 active:bg-green-300"
           >
             EKLE
           </button>
         </td>
       </td>
-      
     </form>
   );
 };
