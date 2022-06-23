@@ -101,6 +101,19 @@ const Reservations = (props) => {
           </div>
           <div className="group mt-1 relative flex items-center">
             <input
+              type="time"
+              name="surname"
+              id="fromName"
+              required
+              autoComplete="off"
+              placeholder="bosSaatler"
+              className="ring-0 focus:ring-0 focus:border-gray-400/80 bg-white/30 focus:bg-white/30 block w-24 pr-5 pl-1.5 py-0 lg:py-2 lg:px-5 text-xs lg:text-sm rounded-lg text-gray-500 focus:text-gray-700 focus:placeholder:text-gray-700 placeholder:text-gray-400"
+              value={filteredData.bosSaatler}
+              onChange={(e) => handleClick("bosSaatler", e.target.value)}
+            />
+          </div>
+          <div className="group mt-1 relative flex items-center">
+            <input
               type="email"
               name="email"
               id="normalEposta"
