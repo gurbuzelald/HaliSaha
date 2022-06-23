@@ -109,7 +109,7 @@ const SelectedItem = (props) => {
     <>
       <div className="flex items-center justify-center shrink-0 h-12 lg:h-14 w-full rounded-t-lg">
         <h2 className="text-sm lg:text-lg font-medium text-gray-800">
-          SEÇİLİ REZERVASYON
+          <strong>SEÇİLİ REZERVASYON</strong>
         </h2>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 px-4 lg:px-6">
