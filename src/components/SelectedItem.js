@@ -43,18 +43,17 @@ const SelectedItem = (props) => {
         ]);
       }
       props.setSelected(null);
-      // props.setQuantity(0);
       dispatch({
         type: "SUCCESS",
-        title: "Ürün sepete eklendi",
-        message: "Seçili ürün sepetinize eklendi",
+        title: "Rezervasyon sepete eklendi",
+        message: "Seçili rezervasyon sepetinize eklendi",
         duration: 4,
       });
     } else {
       dispatch({
         type: "ERROR",
         title: "Sepetiniz boş",
-        message: "Lütfen önce sepetinize ürün ekleyin",
+        message: "Lütfen önce sepetinize rezervasyon ekleyin",
         duration: 4,
       });
     }
@@ -75,7 +74,6 @@ const SelectedItem = (props) => {
         });
         props.setItemsAddedToCart(updatedCart);
         props.setSelected(null);
-        // props.setQuantity(0);
       } else {
         dispatch({
           type: "ERROR",
@@ -130,7 +128,7 @@ const SelectedItem = (props) => {
                   </div>
                 ) : (
                   <div className="flex h-16 w-full items-center justify-center space-x-1 text-xs lg:text-lg font-semibold text-gray-800">
-                    <span>SEÇİLİ ÜRÜN YOK</span>
+                    <span>SEÇİLİ REZERVASYON YOK</span>
                   </div>
                 )}
               </div>
@@ -148,7 +146,7 @@ const SelectedItem = (props) => {
                   </div>
                 ) : (
                   <div className="flex flex-col h-full w-full items-center justify-center p-2 space-y-1.5 rounded-lg text-sm lg:text-lg font-semibold text-gray-800 bg-white">
-                    <span className="text-center">SEÇİLİ ÜRÜN YOK</span>
+                    <span className="text-center">SEÇİLİ REZERVASYON YOK</span>
                   </div>
                 )}
               </div>
