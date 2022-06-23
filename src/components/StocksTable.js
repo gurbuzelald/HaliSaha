@@ -8,23 +8,23 @@ const StocksTable = (props) => {
   const [formData, setFormData] = useState({});
   const [selected, setSelected] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  // rezervasyonlarda bir degisiklik oldukca tabloyu gunceller
+  // rezervasyonlarda değişiklik oldukça tabloyu günceller
   useEffect(() => {
     setTableData(props.data);
   }, [props.data]);
 
-  // secili urun degistikce rezervasyon guncelleme formunu secilen rezervasyonun bilgileriyle gunceller
+  // seçili rezervasyon değiştikçe rezervasyon güncelleme formunu seçilen rezervasyonun bilgileriyle günceller.
   useEffect(() => {
     setFormData(selected);
   }, [selected]);
 
-  // dialog componentini acar ve icinde secili rezervasyonu guncelleme formunu goruntuler
+  // dialog componentini açar ve içindeki seçili rezervasyon formunu günceller
   const handleOpenUpdateDialog = (item) => {
     setSelected(item);
     setIsDialogOpen(true);
   };
 
-  // secili rezervasyonu girilen yeni verilerle gunceller
+  // seçili rezervasyonu girilen yeni verilerle günceller	
   const handleUpdate = (id) => {
     const updatedProducts = props.data.map((el) => {
       if (el.id === id)
@@ -43,7 +43,7 @@ const StocksTable = (props) => {
     setIsDialogOpen(false);
   };
 
-  // secili rezervasyonu siler
+  // seçili rezervasyonu siler
   const handleDelete = (id) => {
     const productsExceptSelected = props.data.filter((urun) => urun.id !== id);
     props.setData(productsExceptSelected);
