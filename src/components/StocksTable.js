@@ -140,7 +140,7 @@ const StocksTable = (props) => {
         </table>
       </div>
       <DialogModal
-        title="Ürün Güncelle"
+        title="Rezervasyon Güncelle"
         text={<UpdateForm data={formData} setData={setFormData} />}
         buttons={[
           {
